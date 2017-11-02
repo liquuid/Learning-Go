@@ -7,9 +7,23 @@ import (
 type person struct {
 	firstName string
 	lastName  string
+	contact   contactInfo
+}
+
+type contactInfo struct {
+	email   string
+	zipCode int
 }
 
 func main() {
-	alex := person{firstName: "Alex", lastName: "Anderson"}
-	fmt.Println(alex)
+	jim := person{
+		firstName: "Jim",
+		lastName:  "Party",
+		contact: contactInfo{
+			email:   "jim@ji.com",
+			zipCode: 90909,
+		},
+	}
+	fmt.Printf("%+v", jim)
+
 }
