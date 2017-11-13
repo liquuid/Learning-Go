@@ -8,7 +8,7 @@ import (
 )
 
 type configuration struct {
-	Webserver string `json:"webserver"`
+	ServerAddress string `json:"webserver"`
 }
 
 func main() {
@@ -18,5 +18,6 @@ func main() {
 	}
 	config := new(configuration)
 	json.NewDecoder(file).Decode(config)
-	dynowebportal.RunWebPortal(config.Webserver)
+	log.Println("Starting web server on: ", config.ServerAddress)
+	dynowebportal.RunWebPortal(config.ServerAddress)
 }
